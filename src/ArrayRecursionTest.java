@@ -88,7 +88,32 @@ class ArrayRecursion
    // (called by public method getLargest())
    private int recursiveGetIndexOfLargest(int[] list, int count)
    {
-      return -999;   // bogus value to enable program skeleton to run
+      count--;
+      
+      if (count <= 0)
+      {
+          return 0;
+      }
+       
+      int indexOfLargest = 0;
+       
+      //count is the number of elements in the array
+      //count-1 is the index of the last element in the array
+      //count-2 is the index of the element before the last element in the array
+      indexOfLargest = recursiveGetIndexOfLargest(list, count);
+     
+      if (list[indexOfLargest]>list[count])
+      {
+          return indexOfLargest;
+      }
+      else
+      {
+          return count;
+      }
+      
+     
+
+    //  return -999;   // bogus value to enable program skeleton to run
    }
 
    /*
