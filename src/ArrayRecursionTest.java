@@ -128,21 +128,22 @@ class ArrayRecursion
    // (called by public method sort())
    private void recursiveSort(int[] list, int count)
    {
-       count--;
-       int temp=0;
-       int indexOfLargest = recursiveGetIndexOfLargest(list, count);
-       
-       if (count <= 0)
-       {
-           
-       }
-       else
-       {
-         temp = list[indexOfLargest]; //Store largest in temp
-         list[indexOfLargest]=list[count]; //Last element is stored in the index of largest
-         list[count] = temp; //Index of last element gets largest
-         recursiveSort(list,count);
-       }
+     if (count == 0)
+     {
+         
+     }
+     
+     else
+     {
+        int indexOfLargest = recursiveGetIndexOfLargest(list, count); //Find largest value in the array
+    
+         //Swap the largest value with the last element
+        int temp = list[count-1]; 
+        list[count-1] = list[indexOfLargest];   //Last element gets the value of largest
+        list[indexOfLargest] = temp;     //Previous largest gets the value of the last element
+    
+        recursiveSort(list, count-1);
+     }
    }
 }
 
